@@ -1,0 +1,7 @@
+bibliopixel.main.deleted.update module
+======================================
+
+.. automodule:: bibliopixel.main.deleted.update
+    :members:
+    :undoc-members:
+    :show-inheritance:

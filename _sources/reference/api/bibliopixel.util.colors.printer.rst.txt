@@ -1,0 +1,7 @@
+bibliopixel.util.colors.printer module
+======================================
+
+.. automodule:: bibliopixel.util.colors.printer
+    :members:
+    :undoc-members:
+    :show-inheritance:

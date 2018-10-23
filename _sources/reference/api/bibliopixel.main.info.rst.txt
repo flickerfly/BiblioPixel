@@ -1,0 +1,7 @@
+bibliopixel.main.info module
+============================
+
+.. automodule:: bibliopixel.main.info
+    :members:
+    :undoc-members:
+    :show-inheritance:

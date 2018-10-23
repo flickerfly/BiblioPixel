@@ -1,0 +1,7 @@
+bibliopixel.main.deleted.save module
+====================================
+
+.. automodule:: bibliopixel.main.deleted.save
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+bibliopixel.main.shutdown module
+================================
+
+.. automodule:: bibliopixel.main.shutdown
+    :members:
+    :undoc-members:
+    :show-inheritance:

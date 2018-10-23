@@ -1,0 +1,7 @@
+bibliopixel.main.new module
+===========================
+
+.. automodule:: bibliopixel.main.new
+    :members:
+    :undoc-members:
+    :show-inheritance:

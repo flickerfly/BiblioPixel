@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Yaml or JSON: how BiblioPixel stores its data &mdash; BiblioPixel 3.4.30 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> BiblioPixel
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.4.30
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">The BiblioPixel Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic-papers/index.html">Topic Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BiblioPixel</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Yaml or JSON: how BiblioPixel stores its data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorial/yaml-and-Json.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="yaml-or-json-how-bibliopixel-stores-its-data">
+<h1>Yaml or JSON: how BiblioPixel stores its data<a class="headerlink" href="#yaml-or-json-how-bibliopixel-stores-its-data" title="Permalink to this headline">¶</a></h1>
+<p>BiblioPixel represents lighting Projects as text files in one of two formats -
+<a class="reference external" href="https://github.com/darvid/trine/wiki/YAML-Primer">YAML</a>
+or <a class="reference external" href="https://json.org">JSON</a>.  If you know about these formats, you can skip
+ahead to the next page.</p>
+<p>Most of our examples are in YAML, because it’s less typing - however, many
+people who write Javascript prefer JSON and that works perfectly well too.</p>
+<p>BiblioPixel doesn’t care about which file names you use, but it’s neater to put
+JSON data in files ending in .json and YAML data in files ending in .yml.</p>
+<p>You can learn YAML by example, from reading this document.  If you’re interested
+in a bit more information, here’s
+<a class="reference external" href="https://github.com/darvid/trine/wiki/YAML-Primer">a link</a>.</p>
+<p><strong>Example 1</strong>: Some data in JSON:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">{</span>
+    <span class="s">&quot;animation&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{</span>
+        <span class="s">&quot;typename&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;sequence&quot;</span><span class="p p-Indicator">,</span>
+        <span class="s">&quot;length&quot;</span><span class="p p-Indicator">:</span> <span class="nv">3</span><span class="p p-Indicator">,</span>
+        <span class="s">&quot;animations&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span>
+            <span class="s">&quot;.tests.PixelTester&quot;</span><span class="p p-Indicator">,</span>
+            <span class="p p-Indicator">{</span>
+                <span class="s">&quot;typename&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;fill&quot;</span><span class="p p-Indicator">,</span>
+                <span class="s">&quot;color&quot;</span><span class="p p-Indicator">:</span> <span class="s">&quot;red&quot;</span>
+            <span class="p p-Indicator">},</span>
+            <span class="s">&quot;$bpa.matrix.MatrixRain&quot;</span>
+        <span class="p p-Indicator">]</span>
+    <span class="p p-Indicator">},</span>
+    <span class="s">&quot;shape&quot;</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">32</span><span class="p p-Indicator">,</span> <span class="nv">12</span><span class="p p-Indicator">]</span>
+<span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/yaml-and-Json-example-1.gif"><img alt="doc/tutorial/yaml-and-Json-example-1" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/yaml-and-Json-example-1.gif" /></a>
+<p><strong>Example 2</strong>:  The same data in YAML:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">animation</span><span class="p p-Indicator">:</span>
+  <span class="c1"># Run three different animations, each for three seconds.</span>
+  <span class="l l-Scalar l-Scalar-Plain">typename</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sequence</span>
+  <span class="l l-Scalar l-Scalar-Plain">length</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+
+  <span class="l l-Scalar l-Scalar-Plain">animations</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">.tests.PixelTester</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">typename</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">fill</span>
+      <span class="l l-Scalar l-Scalar-Plain">color</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">red</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">$bpa.matrix.MatrixRain</span>
+
+<span class="l l-Scalar l-Scalar-Plain">shape</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">32</span><span class="p p-Indicator">,</span> <span class="nv">12</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/yaml-and-Json-example-2.gif"><img alt="doc/tutorial/yaml-and-Json-example-2" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/yaml-and-Json-example-2.gif" /></a>
+<p>YAML isn’t just shorter and cleaner: it lets you write comments to yourself or
+anyone else reading, by starting a line with the <code class="docutils literal notranslate"><span class="pre">#</span></code> character.</p>
+<p>We make heavy use of this “comment” feature in our own projects, and we suggest
+you do too when writing yours, unless your memory is better than ours.</p>
+<hr class="docutils" />
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">shape</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">64</span><span class="p p-Indicator">,</span> <span class="nv">16</span><span class="p p-Indicator">]</span>
+<span class="l l-Scalar l-Scalar-Plain">animation</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">typename</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$bpa.matrix.MathFunc</span>
+  <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">23</span>
+  <span class="l l-Scalar l-Scalar-Plain">palette</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">colors</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">eight</span>
+    <span class="l l-Scalar l-Scalar-Plain">continuous</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="l l-Scalar l-Scalar-Plain">scale</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.01</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/yaml-and-Json-footer.gif"><img alt="doc/tutorial/yaml-and-Json-footer" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/yaml-and-Json-footer.gif" /></a>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Maniacal Labs, Inc and Tom Ritchford
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+bibliopixel.main.deleted package
+================================
+
+Submodules
+----------
+
+.. toctree::
+
+   bibliopixel.main.deleted.list
+   bibliopixel.main.deleted.load
+   bibliopixel.main.deleted.remove
+   bibliopixel.main.deleted.reset
+   bibliopixel.main.deleted.save
+   bibliopixel.main.deleted.set
+   bibliopixel.main.deleted.show
+   bibliopixel.main.deleted.update
+
+Module contents
+---------------
+
+.. automodule:: bibliopixel.main.deleted
+    :members:
+    :undoc-members:
+    :show-inheritance:

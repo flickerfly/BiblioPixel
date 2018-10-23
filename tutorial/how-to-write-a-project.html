@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>How to write a Project &mdash; BiblioPixel 3.4.30 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The bp program." href="the-bp-program.html" />
+    <link rel="prev" title="Installing BiblioPixel" href="installing-bibliopixel.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> BiblioPixel
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.4.30
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">The BiblioPixel Tutorial</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="before-you-start.html">Before you start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="animated-gifs.html">About the animated GIFs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing-bibliopixel.html">Installing BiblioPixel</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">How to write a Project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#open-a-command-line">1. Open a command line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-directory-to-the-directory-you-want-to-work-in">2. Change directory to the directory you want to work in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-the-bp-new-your-project-name-to-create-a-new-project">3. Use the <code class="docutils literal notranslate"><span class="pre">bp</span> <span class="pre">new</span> <span class="pre">&lt;your-project-name&gt;</span></code> to create a new project</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-the-project-file">4. Run the Project file:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stop-the-program">5.  Stop the program.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#edit-the-project-to-change-the-shape">6. Edit the Project to change the Shape.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#change-the-animation">7. Change the Animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#use-a-custom-python-animation">8.  Use a custom Python Animation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="the-bp-program.html">The <code class="docutils literal notranslate"><span class="pre">bp</span></code> program.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stopping-and-restarting-bp.html">How to stop or restart <code class="docutils literal notranslate"><span class="pre">bp</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="projects.html">Projects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-fields.html">More on Fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="project-sections.html">Project Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-animation-section.html">The <code class="docutils literal notranslate"><span class="pre">animation</span></code> Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-shape-and-layout-sections.html">The <code class="docutils literal notranslate"><span class="pre">shape</span></code> and <code class="docutils literal notranslate"><span class="pre">layout</span></code> Sections.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typenames.html">Typenames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types-of-typenames.html">Types of Typenames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types-of-typenames.html#warning-warning-warning">WARNING WARNING WARNING!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="type-guessing.html">Type guessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="palettes.html">Palettes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fields-of-a-palette.html">Fields of a Palette</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-driver-section.html">The <code class="docutils literal notranslate"><span class="pre">driver</span></code> Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="the-drivers-section.html">The <code class="docutils literal notranslate"><span class="pre">drivers</span></code> Section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="routing-addresses-and-actions.html">Routing, Addresses and Actions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-help.html">Getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topic-papers/index.html">Topic Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">BiblioPixel</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">The BiblioPixel Tutorial</a> &raquo;</li>
+        
+      <li>How to write a Project</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorial/how-to-write-a-project.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="how-to-write-a-project">
+<h1>How to write a Project<a class="headerlink" href="#how-to-write-a-project" title="Permalink to this headline">¶</a></h1>
+<p>This section will guide you throw creating a new project from scratch, and
+editing it to make tiny changes.</p>
+<div class="section" id="open-a-command-line">
+<h2>1. Open a command line<a class="headerlink" href="#open-a-command-line" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="change-directory-to-the-directory-you-want-to-work-in">
+<h2>2. Change directory to the directory you want to work in<a class="headerlink" href="#change-directory-to-the-directory-you-want-to-work-in" title="Permalink to this headline">¶</a></h2>
+<p>Often you’d want to work in your home directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-the-bp-new-your-project-name-to-create-a-new-project">
+<h2>3. Use the <code class="docutils literal notranslate"><span class="pre">bp</span> <span class="pre">new</span> <span class="pre">&lt;your-project-name&gt;</span></code> to create a new project<a class="headerlink" href="#use-the-bp-new-your-project-name-to-create-a-new-project" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bp new my_lights
+</pre></div>
+</div>
+<p>This will create a new directory named <code class="docutils literal notranslate"><span class="pre">my_lights/</span></code> in your current directory.</p>
+<p>That directory contains a sample project file and a sample Python file for you
+to edit.</p>
+</div>
+<div class="section" id="run-the-project-file">
+<h2>4. Run the Project file:<a class="headerlink" href="#run-the-project-file" title="Permalink to this headline">¶</a></h2>
+<p>Change directory to the project directory, and run the Project file, like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> my_lights
+bp -s my_lights.yml
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">-s</span></code> flag to <code class="docutils literal notranslate"><span class="pre">bp</span></code> means “open a SimPixel window” and it will indeed open
+on your browser, showing a lighting pattern like this:</p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-1.gif"><img alt="Result" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-1.gif" /></a>
+</div>
+<div class="section" id="stop-the-program">
+<h2>5.  Stop the program.<a class="headerlink" href="#stop-the-program" title="Permalink to this headline">¶</a></h2>
+<p>Press Control-C to stop the <code class="docutils literal notranslate"><span class="pre">bp</span></code> program. Close the browser window.</p>
+</div>
+<div class="section" id="edit-the-project-to-change-the-shape">
+<h2>6. Edit the Project to change the Shape.<a class="headerlink" href="#edit-the-project-to-change-the-shape" title="Permalink to this headline">¶</a></h2>
+<p>With your text editor, edit the project file <code class="docutils literal notranslate"><span class="pre">my_lights.yml</span></code>.</p>
+<p>Go to the line that says: <code class="docutils literal notranslate"><span class="pre">shape:</span> <span class="pre">[32,</span> <span class="pre">48]</span></code> and change it to say
+<code class="docutils literal notranslate"><span class="pre">shape:</span> <span class="pre">[96,</span> <span class="pre">16]</span></code> and run the Project again.  You should see this:</p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-2.gif"><img alt="Result" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-2.gif" /></a>
+<p>Now change that line to say: <code class="docutils literal notranslate"><span class="pre">shape:</span> <span class="pre">[48,</span> <span class="pre">48]</span></code> and run the Project again.  You
+should see this:</p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-3.gif"><img alt="Result" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-3.gif" /></a>
+</div>
+<div class="section" id="change-the-animation">
+<h2>7. Change the Animation<a class="headerlink" href="#change-the-animation" title="Permalink to this headline">¶</a></h2>
+<p>Go to the line that says: <code class="docutils literal notranslate"><span class="pre">animation:</span> <span class="pre">$bpa.matrix.bloom</span></code> and change it to say
+<code class="docutils literal notranslate"><span class="pre">animation:</span> <span class="pre">$bpa.matrix.SpinningTriangle</span></code> and run it again.  You get this:</p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-4.gif"><img alt="Result" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-4.gif" /></a>
+<p>Now, let’s try a sequence.</p>
+<p>Delete that line <code class="docutils literal notranslate"><span class="pre">animation:</span> <span class="pre">$bpa.SpinningTriangle</span></code></p>
+<p>Go down a little to around line 48, and uncomment all those lines by removing
+the first <em>two</em> characters from each line, so it looks like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">animation</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">typename</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">sequence</span>
+  <span class="l l-Scalar l-Scalar-Plain">length</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+  <span class="l l-Scalar l-Scalar-Plain">animations</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">$bpa.bloom</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">$bpa.pinwheel</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">$bpa.GameOfLife.GameOfLifeRGB</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">$bpa.SpinningTriangle</span>
+</pre></div>
+</div>
+<p>Run it again.  You should see a series of four animations, each running for ten
+seconds, like this:</p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-5.gif"><img alt="Result" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-5.gif" /></a>
+</div>
+<div class="section" id="use-a-custom-python-animation">
+<h2>8.  Use a custom Python Animation<a class="headerlink" href="#use-a-custom-python-animation" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">bp</span> <span class="pre">new</span></code> command creates a new custom Python animation for you to play with.
+In this case, it’s called <code class="docutils literal notranslate"><span class="pre">my_lights.MyLights</span></code>.</p>
+<p>Delete the <code class="docutils literal notranslate"><span class="pre">animation:</span></code> lines above with the <code class="docutils literal notranslate"><span class="pre">sequence</span></code>, scroll down a
+little to the lines at the end of the Project file, and uncomment them:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">animation</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">typename</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my_lights.MyLights</span>
+  <span class="l l-Scalar l-Scalar-Plain">color</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">red</span>
+</pre></div>
+</div>
+<p>Resulting in this:</p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-6.gif"><img alt="Result" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-6.gif" /></a>
+<p>Run the Project again.  Change the <code class="docutils literal notranslate"><span class="pre">color:</span></code> line to read <code class="docutils literal notranslate"><span class="pre">color:</span> <span class="pre">goldenrod</span></code> and
+run it again to get this:</p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-7.gif"><img alt="Result" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-7.gif" /></a>
+<p>Now let’s change the Python code.</p>
+<p>With your text editor, edit the Python file <code class="docutils literal notranslate"><span class="pre">my_lights.py</span></code>.</p>
+<p>After these lines in the file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the previous pixel to black.</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">color_list</span><span class="p">[</span><span class="n">this_pixel</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLORS</span><span class="o">.</span><span class="n">black</span>
+</pre></div>
+</div>
+<p>add these two lines:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">color_list</span><span class="p">[</span><span class="n">this_pixel</span> <span class="o">-</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLORS</span><span class="o">.</span><span class="n">yellow</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">color_list</span><span class="p">[</span><span class="n">this_pixel</span> <span class="o">-</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">COLORS</span><span class="o">.</span><span class="n">black</span>
+</pre></div>
+</div>
+<p>and run it again to get this:</p>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-8.gif"><img alt="Result" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/2-example-8.gif" /></a>
+<hr class="docutils" />
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">shape</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[</span><span class="nv">64</span><span class="p p-Indicator">,</span> <span class="nv">16</span><span class="p p-Indicator">]</span>
+<span class="l l-Scalar l-Scalar-Plain">animation</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">$bpa.matrix.GameOfLife.GameOfLifeRGB</span>
+</pre></div>
+</div>
+<a class="reference external image-reference" href="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/how-to-write-a-project-footer.gif"><img alt="doc/tutorial/how-to-write-a-project-footer" class="align-center" src="https://raw.githubusercontent.com/ManiacalLabs/DocsFiles/master/BiblioPixel/doc/tutorial/how-to-write-a-project-footer.gif" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="the-bp-program.html" class="btn btn-neutral float-right" title="The bp program." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="installing-bibliopixel.html" class="btn btn-neutral" title="Installing BiblioPixel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Maniacal Labs, Inc and Tom Ritchford
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

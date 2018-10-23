@@ -1,0 +1,7 @@
+bibliopixel.util.colors.palette module
+======================================
+
+.. automodule:: bibliopixel.util.colors.palette
+    :members:
+    :undoc-members:
+    :show-inheritance:

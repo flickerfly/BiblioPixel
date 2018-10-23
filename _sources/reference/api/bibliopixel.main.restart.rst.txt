@@ -1,0 +1,7 @@
+bibliopixel.main.restart module
+===============================
+
+.. automodule:: bibliopixel.main.restart
+    :members:
+    :undoc-members:
+    :show-inheritance:

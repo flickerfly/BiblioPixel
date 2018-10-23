@@ -1,0 +1,7 @@
+bibliopixel.main.deleted.reset module
+=====================================
+
+.. automodule:: bibliopixel.main.deleted.reset
+    :members:
+    :undoc-members:
+    :show-inheritance:

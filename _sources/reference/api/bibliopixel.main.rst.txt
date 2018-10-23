@@ -1,0 +1,42 @@
+bibliopixel.main package
+========================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    bibliopixel.main.deleted
+
+Submodules
+----------
+
+.. toctree::
+
+   bibliopixel.main.all_pixel
+   bibliopixel.main.all_pixel_test
+   bibliopixel.main.animations
+   bibliopixel.main.args
+   bibliopixel.main.clear_cache
+   bibliopixel.main.commands
+   bibliopixel.main.common_flags
+   bibliopixel.main.demo
+   bibliopixel.main.demo_table
+   bibliopixel.main.devices
+   bibliopixel.main.info
+   bibliopixel.main.kill
+   bibliopixel.main.main
+   bibliopixel.main.monitor
+   bibliopixel.main.new
+   bibliopixel.main.pid
+   bibliopixel.main.restart
+   bibliopixel.main.run
+   bibliopixel.main.shutdown
+
+Module contents
+---------------
+
+.. automodule:: bibliopixel.main
+    :members:
+    :undoc-members:
+    :show-inheritance:

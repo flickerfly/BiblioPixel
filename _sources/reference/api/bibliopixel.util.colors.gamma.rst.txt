@@ -1,0 +1,7 @@
+bibliopixel.util.colors.gamma module
+====================================
+
+.. automodule:: bibliopixel.util.colors.gamma
+    :members:
+    :undoc-members:
+    :show-inheritance:

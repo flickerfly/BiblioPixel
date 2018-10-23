@@ -1,0 +1,37 @@
+bibliopixel.project package
+===========================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    bibliopixel.project.types
+
+Submodules
+----------
+
+.. toctree::
+
+   bibliopixel.project.alias_lists
+   bibliopixel.project.aliases
+   bibliopixel.project.attributes
+   bibliopixel.project.construct
+   bibliopixel.project.data_maker
+   bibliopixel.project.defaults
+   bibliopixel.project.edit_queue
+   bibliopixel.project.fields
+   bibliopixel.project.fill
+   bibliopixel.project.importer
+   bibliopixel.project.load
+   bibliopixel.project.merge
+   bibliopixel.project.project
+   bibliopixel.project.recurse
+
+Module contents
+---------------
+
+.. automodule:: bibliopixel.project
+    :members:
+    :undoc-members:
+    :show-inheritance:

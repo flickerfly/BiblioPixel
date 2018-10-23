@@ -1,0 +1,7 @@
+bibliopixel.main.deleted.load module
+====================================
+
+.. automodule:: bibliopixel.main.deleted.load
+    :members:
+    :undoc-members:
+    :show-inheritance:

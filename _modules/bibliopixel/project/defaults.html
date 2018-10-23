@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>bibliopixel.project.defaults &mdash; BiblioPixel 3.4.30 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> BiblioPixel
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.4.30
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorial/index.html">The BiblioPixel Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting-help.html">Getting help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../topic-papers/index.html">Topic Papers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../reference.html">Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">BiblioPixel</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>bibliopixel.project.defaults</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for bibliopixel.project.defaults</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">.</span> <span class="k">import</span> <span class="n">merge</span> <span class="k">as</span> <span class="n">_merge</span>
+<span class="kn">from</span> <span class="nn">..</span> <span class="n">util</span> <span class="kn">import</span> <span class="nn">data_file</span><span class="o">,</span> <span class="nn">log</span><span class="o">,</span> <span class="nn">persistent_dict</span>
+
+<span class="c1"># This is set to true during testing.</span>
+<span class="n">BYPASS_PROJECT_DEFAULTS</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">USER_DEFAULTS_FILE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/.bibliopixel/default.json&#39;</span><span class="p">)</span>
+<span class="n">USER_DEFAULTS</span> <span class="o">=</span> <span class="n">persistent_dict</span><span class="o">.</span><span class="n">PersistentDict</span><span class="p">(</span><span class="n">USER_DEFAULTS_FILE</span><span class="p">)</span>
+<span class="n">PROJECT_DEFAULTS</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">SAVE_DIRECTORY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/.bibliopixel/project_defaults&#39;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="merge"><a class="viewcode-back" href="../../../reference/api/bibliopixel.project.defaults.html#bibliopixel.project.defaults.merge">[docs]</a><span class="k">def</span> <span class="nf">merge</span><span class="p">(</span><span class="o">*</span><span class="n">projects</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Merge the global project defaults and the user project defaults with a list</span>
+<span class="sd">    of projects</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">defaults</span> <span class="o">=</span> <span class="p">[</span><span class="n">_merge</span><span class="o">.</span><span class="n">DEFAULT_PROJECT</span><span class="p">]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">BYPASS_PROJECT_DEFAULTS</span><span class="p">:</span>
+        <span class="n">defaults</span> <span class="o">+=</span> <span class="n">PROJECT_DEFAULTS</span> <span class="ow">or</span> <span class="p">[</span><span class="n">USER_DEFAULTS</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">_merge</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">defaults</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">projects</span><span class="p">)))</span></div>
+
+
+<div class="viewcode-block" id="show_defaults"><a class="viewcode-back" href="../../../reference/api/bibliopixel.project.defaults.html#bibliopixel.project.defaults.show_defaults">[docs]</a><span class="k">def</span> <span class="nf">show_defaults</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;List current user defaults in data_file format (JSON or YAML)&quot;&quot;&quot;</span>
+    <span class="n">_warn_if_empty</span><span class="p">()</span>
+    <span class="n">data_file</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">USER_DEFAULTS</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">printer</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="reset_defaults"><a class="viewcode-back" href="../../../reference/api/bibliopixel.project.defaults.html#bibliopixel.project.defaults.reset_defaults">[docs]</a><span class="k">def</span> <span class="nf">reset_defaults</span><span class="p">(</span><span class="n">sections</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Reset some or all sections of the user defaults file&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">_warn_if_empty</span><span class="p">():</span>
+        <span class="k">return</span>
+    <span class="n">sections</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_check_sections</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span> <span class="ow">or</span> <span class="n">USER_DEFAULTS</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="s1">&#39;Before reset:&#39;</span><span class="p">)</span>
+    <span class="n">show_defaults</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sections</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">USER_DEFAULTS</span><span class="p">[</span><span class="n">s</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="s1">&#39;Reset&#39;</span><span class="p">,</span> <span class="o">*</span><span class="n">sections</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="set_defaults"><a class="viewcode-back" href="../../../reference/api/bibliopixel.project.defaults.html#bibliopixel.project.defaults.set_defaults">[docs]</a><span class="k">def</span> <span class="nf">set_defaults</span><span class="p">(</span><span class="n">sections</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set user default values for one or more sections, or for an entire project</span>
+<span class="sd">    at once.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">assignments</span> <span class="o">=</span> <span class="n">_sections_to_assignments</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span>
+    <span class="n">USER_DEFAULTS</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">assignments</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="load_defaults"><a class="viewcode-back" href="../../../reference/api/bibliopixel.project.defaults.html#bibliopixel.project.defaults.load_defaults">[docs]</a><span class="k">def</span> <span class="nf">load_defaults</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">defaults</span> <span class="o">=</span> <span class="n">_load_defaults</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">USER_DEFAULTS</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">USER_DEFAULTS</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">defaults</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="s1">&#39;Loaded project defaults from&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="save_defaults"><a class="viewcode-back" href="../../../reference/api/bibliopixel.project.defaults.html#bibliopixel.project.defaults.save_defaults">[docs]</a><span class="k">def</span> <span class="nf">save_defaults</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;/&#39;</span> <span class="ow">in</span> <span class="n">name</span> <span class="ow">or</span> <span class="s1">&#39;.&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">SAVE_DIRECTORY</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">_default_file</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="n">yn</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Default </span><span class="si">%s</span><span class="s1"> already exists.  Overwrite? (y/N) &#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">yn</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">):</span>
+            <span class="k">return</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+        <span class="n">data_file</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">USER_DEFAULTS</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="s1">&#39;Written project defaults to&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="remove_defaults"><a class="viewcode-back" href="../../../reference/api/bibliopixel.project.defaults.html#bibliopixel.project.defaults.remove_defaults">[docs]</a><span class="k">def</span> <span class="nf">remove_defaults</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_defaults</span><span class="p">():</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">_default_file</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="s1">&#39;No such default:&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="n">list_saved_defaults</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="list_saved_defaults"><a class="viewcode-back" href="../../../reference/api/bibliopixel.project.defaults.html#bibliopixel.project.defaults.list_saved_defaults">[docs]</a><span class="k">def</span> <span class="nf">list_saved_defaults</span><span class="p">():</span>
+    <span class="n">defaults</span> <span class="o">=</span> <span class="n">_defaults</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">defaults</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="s1">&#39;Saved project defaults:&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">log</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="s1">&#39;   &#39;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="s1">&#39;(no project defaults saved)&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="set_project_defaults"><a class="viewcode-back" href="../../../reference/api/bibliopixel.project.defaults.html#bibliopixel.project.defaults.set_project_defaults">[docs]</a><span class="k">def</span> <span class="nf">set_project_defaults</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="n">PROJECT_DEFAULTS</span><span class="p">[:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">_load_defaults</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span></div>
+
+
+<span class="k">def</span> <span class="nf">_check_sections</span><span class="p">(</span><span class="n">sections</span><span class="p">):</span>
+    <span class="n">unknown</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">sections</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">_merge</span><span class="o">.</span><span class="n">PROJECT_SECTIONS</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">unknown</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">sections</span>
+
+    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">unknown</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="s1">&#39;s&#39;</span>
+    <span class="n">unknown</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">unknown</span><span class="p">))</span>
+    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unknown project section</span><span class="si">%s</span><span class="s1">: </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">unknown</span><span class="p">))</span>
+
+
+<span class="c1"># Fail immediately if the user preferences contain unknown sections.</span>
+<span class="c1"># This should only ever happen if the user edited the file by hand.</span>
+<span class="n">_check_sections</span><span class="p">(</span><span class="n">USER_DEFAULTS</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_sections_to_assignments</span><span class="p">(</span><span class="n">sections</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">sections</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;`set` called with no arguments&#39;</span><span class="p">)</span>
+
+    <span class="n">is_json</span> <span class="o">=</span> <span class="n">sections</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;{&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">is_json</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_check_sections</span><span class="p">(</span><span class="n">data_file</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sections</span><span class="p">)))</span>
+
+    <span class="n">assignments</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sections</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">section</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;All arguments to `set` must contain =&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Help the user out a little if they use strings without quotes by</span>
+        <span class="c1"># wrapping them in quotes.</span>
+
+        <span class="k">if</span> <span class="n">value</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="ow">and</span> <span class="p">(</span><span class="n">value</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">,</span> <span class="s1">&#39;false&#39;</span><span class="p">,</span> <span class="s1">&#39;null&#39;</span><span class="p">)):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;&quot;</span><span class="si">%s</span><span class="s1">&quot;&#39;</span> <span class="o">%</span> <span class="n">value</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">data_file</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s1">&#39;Bad data in `set` for </span><span class="si">%s</span><span class="s1">=</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">section</span><span class="p">,</span> <span class="n">value</span><span class="p">),)</span>
+            <span class="k">raise</span>
+
+        <span class="o">*</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">assignments</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">first</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">[]</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;s&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">{})</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">last</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="k">return</span> <span class="n">_check_sections</span><span class="p">(</span><span class="n">assignments</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_warn_if_empty</span><span class="p">():</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">USER_DEFAULTS</span><span class="p">:</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">printer</span><span class="p">(</span><span class="s1">&#39;(no entries in defaults file)&#39;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+
+<span class="k">def</span> <span class="nf">_defaults</span><span class="p">():</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">SAVE_DIRECTORY</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">SAVE_DIRECTORY</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)]</span>
+
+
+<span class="k">def</span> <span class="nf">_default_file</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">SAVE_DIRECTORY</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_load_defaults</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">_default_file</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="n">list_saved_defaults</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No such default: &#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data_file</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;There was an error in data file &#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span>
+                  <span class="s1">&#39;Did you edit this file by hand?&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">args</span>
+        <span class="k">raise</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Maniacal Labs, Inc and Tom Ritchford
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

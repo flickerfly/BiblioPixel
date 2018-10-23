@@ -1,0 +1,7 @@
+bibliopixel.main.monitor module
+===============================
+
+.. automodule:: bibliopixel.main.monitor
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,7 @@
+bibliopixel.main.all\_pixel module
+==================================
+
+.. automodule:: bibliopixel.main.all_pixel
+    :members:
+    :undoc-members:
+    :show-inheritance:

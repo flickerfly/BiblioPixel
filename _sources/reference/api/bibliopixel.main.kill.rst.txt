@@ -1,0 +1,7 @@
+bibliopixel.main.kill module
+============================
+
+.. automodule:: bibliopixel.main.kill
+    :members:
+    :undoc-members:
+    :show-inheritance:

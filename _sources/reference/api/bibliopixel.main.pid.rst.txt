@@ -1,0 +1,7 @@
+bibliopixel.main.pid module
+===========================
+
+.. automodule:: bibliopixel.main.pid
+    :members:
+    :undoc-members:
+    :show-inheritance:

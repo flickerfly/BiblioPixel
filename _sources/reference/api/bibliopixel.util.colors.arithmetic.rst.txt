@@ -1,0 +1,7 @@
+bibliopixel.util.colors.arithmetic module
+=========================================
+
+.. automodule:: bibliopixel.util.colors.arithmetic
+    :members:
+    :undoc-members:
+    :show-inheritance:

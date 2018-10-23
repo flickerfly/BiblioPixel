@@ -1,0 +1,7 @@
+bibliopixel.main.common\_flags module
+=====================================
+
+.. automodule:: bibliopixel.main.common_flags
+    :members:
+    :undoc-members:
+    :show-inheritance:

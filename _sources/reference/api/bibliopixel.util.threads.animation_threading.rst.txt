@@ -1,0 +1,7 @@
+bibliopixel.util.threads.animation\_threading module
+====================================================
+
+.. automodule:: bibliopixel.util.threads.animation_threading
+    :members:
+    :undoc-members:
+    :show-inheritance:

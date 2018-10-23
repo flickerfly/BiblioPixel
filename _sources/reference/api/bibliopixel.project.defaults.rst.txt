@@ -1,0 +1,7 @@
+bibliopixel.project.defaults module
+===================================
+
+.. automodule:: bibliopixel.project.defaults
+    :members:
+    :undoc-members:
+    :show-inheritance:

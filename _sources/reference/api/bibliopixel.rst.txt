@@ -1,0 +1,24 @@
+bibliopixel package
+===================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    bibliopixel.animation
+    bibliopixel.colors
+    bibliopixel.control
+    bibliopixel.drivers
+    bibliopixel.layout
+    bibliopixel.main
+    bibliopixel.project
+    bibliopixel.util
+
+Module contents
+---------------
+
+.. automodule:: bibliopixel
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -1,0 +1,24 @@
+bibliopixel.util.image package
+==============================
+
+Submodules
+----------
+
+.. toctree::
+
+   bibliopixel.util.image.extract_gif_lines
+   bibliopixel.util.image.gif
+   bibliopixel.util.image.load_image
+   bibliopixel.util.image.movie_writer
+   bibliopixel.util.image.mp4
+   bibliopixel.util.image.old_gif
+   bibliopixel.util.image.renderer
+   bibliopixel.util.image.reshape
+
+Module contents
+---------------
+
+.. automodule:: bibliopixel.util.image
+    :members:
+    :undoc-members:
+    :show-inheritance:
