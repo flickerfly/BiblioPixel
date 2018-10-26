@@ -59,6 +59,7 @@ often removes a huge amount of duplicated typing:
 **Example 3**: Using drivers to address multiple SPI ports
 
 .. code-block:: yaml
+
   driver:
     typename: .SPI.WS2801
     num: 64
